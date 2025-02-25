@@ -100,7 +100,7 @@ func (m *MailService) VerifyMail(receiver, name, code string) error {
 	if err := message.To(receiver); err != nil {
 		return fmt.Errorf("%w: %w", ErrFailedSetReceiver, err)
 	}
-	message.Subject("Verify your email")
+	message.Subject("Подтвердите свой email")
 	tpl, err := template.ParseFiles("/app/templates/verify.html")
 	if err != nil {
 		return fmt.Errorf("%w: %w", ErrFailedParseTmpl, err)
